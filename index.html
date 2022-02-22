@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Making psychological science robust</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Making psychological science robust',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                      },
+
+      // Author information
+      presenters: [
+            {
+        name:  'Rick O. Gilmore' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+  <link href="libs/ioslides-13.5.1/fonts/fonts.css" rel="stylesheet" />
+  <link href="libs/ioslides-13.5.1/theme/css/default.css" rel="stylesheet" />
+  <link href="libs/ioslides-13.5.1/theme/css/phone.css" rel="stylesheet" />
+  <script src="libs/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+  <script src="libs/ioslides-13.5.1/js/prettify/prettify.js"></script>
+  <script src="libs/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+  <script src="libs/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+  <script src="libs/ioslides-13.5.1/js/hammer.js"></script>
+  <script src="libs/ioslides-13.5.1/js/slide-controller.js"></script>
+  <script src="libs/ioslides-13.5.1/js/slide-deck.js"></script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    summary {
+      display: list-item;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+/* https://github.com/ropensci/plotly/pull/524#issuecomment-468142578 */
+slide:not(.current) .plotly.html-widget{
+  display: block;
+}
+
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+            
+  </style>
+
+  <link rel="stylesheet" href="css/ioslides.css" type="text/css" />
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">2022-02-22
+09:33:26</p>
+          </hgroup>
+  </slide>
+
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Preliminaries</h2></hgroup><article  id="preliminaries">
+
+</article></slide><slide class=""><hgroup><h2>About me</h2></hgroup><article  id="about-me">
+
+<ul>
+<li>Professor of Psychology</li>
+<li>Founding Director of Human Imaging, PSU <a href='http://imaging.psu.edu' title=''>SLEIC</a></li>
+<li>Co-Founder/Co-Director <a href='http://databrary.org' title=''>Databrary.org</a></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<ul>
+<li>B.A. in cognitive science, Brown University</li>
+<li>Ph.D. in cognitive neuroscience, Carnegie Mellon University</li>
+<li>vision, perception &amp; action, brain development, open science</li>
+<li>ham radio operator (K3ROG), actor/singer, banjo-picker, hiker/cyclist, coder</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Overview</h2></hgroup><article  id="overview">
+
+<ul>
+<li>Reproducibility in science</li>
+<li>Getting it wrong…and getting it right</li>
+<li>How to do better</li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Reproducibility in science</h2></hgroup><article  id="reproducibility-in-science">
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p><img src="img/covid-19.png" width="620" style="display: block; margin: auto;" /></p>
+
+<aside class='note'><section><p>When scientists share things happen, we all benefit. Scientists sequenced and openly published the genome of the Covid-19 virus early in 2020. Vaccines of remarkable success were developed, tested, and deployed with astonishing speed. Open sharing saved lives.</p></section></aside>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/66oNv_DJuPc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+<p><a href='https://youtu.be/66oNv_DJuPc' title=''>https://youtu.be/66oNv_DJuPc</a></p>
+
+<!-- Data Sharing and Management Snafu in 3 Short Acts (Higher Quality) -->
+
+</article></slide><slide class=""><hgroup><h2>What proportion of studies in the published scientific literature are <em>actually true</em>?</h2></hgroup><article  id="what-proportion-of-studies-in-the-published-scientific-literature-are-actually-true">
+
+<ul class = 'build'>
+<li>100%</li>
+<li>90%</li>
+<li>70%</li>
+<li>50%</li>
+<li>30%</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>How do we define what &ldquo;<em>actually true</em>&rdquo; means?</h2></hgroup><article  id="how-do-we-define-what-actually-true-means">
+
+</article></slide><slide class=""><hgroup><h2>Is there a reproducibility crisis in science?</h2></hgroup><article  id="is-there-a-reproducibility-crisis-in-science">
+
+<ul class = 'build'>
+<li>Yes, a significant crisis</li>
+<li>Yes, a slight crisis</li>
+<li>No crisis</li>
+<li>Don’t know</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p><img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<!-- Scrolling final reference page -->
+
+<!-- http://stackoverflow.com/q/38260799 -->
+
+<style>
+slides > slide { overflow: scroll; }
+slides > slide:not(.nobackground):before {
+  background: none;
+  }
+slides > slide:not(.nobackground):after {
+  content: '';
+  background: none;
+  }
+}
+</style>
+
+<div style="text-align: center" class="figure">
+<img src="https://media.springernature.com/w300/springer-static/image/art%3A10.1038%2F533452a/MediaObjects/41586_2016_BF533452a_Fige_HTML.jpg?as=webp" alt="[[@baker_1500_2016]](http://doi.org/10.1038/533452a)" width="600px" />
+
+<p class="caption">
+
+<a href='http://doi.org/10.1038/533452a' title=''><span class="cite">(Baker, 2016)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>What does &ldquo;reproducibility&rdquo; mean?</h2></hgroup><article  id="what-does-reproducibility-mean">
+
+<ul>
+<li>Are we all talking about the same thing?</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2><em>Methods</em> reproducibility</h2></hgroup><article  id="methods-reproducibility">
+
+<ul>
+<li>Enough details about materials &amp; methods recorded (&amp; reported) so that</li>
+<li>Same results with same materials &amp; methods</li>
+</ul>
+
+<p><a href='http://doi.org/10.1126/scitranslmed.aaf5027' title=''><span class="cite">(Goodman, Fanelli, &amp; Ioannidis, 2016)</span></a></p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div class="centered">
+<p><img src="http://lh6.ggpht.com/_KVa1Tk_k1BU/TTjL-RSY_eI/AAAAAAAABtg/VQIfae1_wtQ/hit_thumb%5B3%5D.jpg?imgmax=800" height=550></p></div>
+
+<aside class='note'><section><p>I like to call this the &ldquo;hit by a truck&rdquo; scenario.</p></section></aside>
+
+</article></slide><slide class=""><hgroup><h2><em>Results</em> reproducibility</h2></hgroup><article  id="results-reproducibility">
+
+<ul>
+<li>Same results from independent study</li>
+</ul>
+
+<p><a href='http://doi.org/10.1126/scitranslmed.aaf5027' title=''><span class="cite">(Goodman et al., 2016)</span></a></p>
+
+</article></slide><slide class=""><hgroup><h2><em>Inferential</em> reproducibility</h2></hgroup><article  id="inferential-reproducibility">
+
+<ul>
+<li>Same inferences from one or more studies or reanalyses</li>
+<li>Meta- or mega-analyses</li>
+</ul>
+
+<p><a href='http://doi.org/10.1126/scitranslmed.aaf5027' title=''><span class="cite">(Goodman et al., 2016)</span></a></p>
+
+</article></slide><slide class=""><hgroup><h2>Factors contributing to irreproducible research</h2></hgroup><article  class="smaller" id="factors-contributing-to-irreproducible-research">
+
+<div style="text-align: center" class="figure">
+<img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" alt="[[@baker_1500_2016]](http://doi.org/10.1038/533452a)"  />
+
+<p class="caption">
+
+<a href='http://doi.org/10.1038/533452a' title=''><span class="cite">(Baker, 2016)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Reproducibility crisis</h2></hgroup><article  id="reproducibility-crisis">
+
+<ul>
+<li>Not just psychology and related behavioral sciences</li>
+<li>&ldquo;Hard&rdquo; sciences, too</li>
+<li>Challenges affect data collection to statistical analysis to reporting to publishing</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div class="centered">
+<p><img src="https://cdn.shopify.com/s/files/1/0877/5762/products/Rigor_Mortis_1024x1024.jpg?v=1491240110" height=550px/></p></div>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Getting it wrong…and getting it right</h2></hgroup><article  id="getting-it-wrongand-getting-it-right">
+
+</article></slide><slide class=""><hgroup><h2>False positives &amp; false negatives</h2></hgroup><article  class="smaller" id="false-positives-false-negatives">
+
+<div style="text-align: center" class="figure">
+<img src="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&h=1536&w=1536&s=cb3b9e51ea5fef6fdc229fb24b740b7d" alt="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&amp;h=1536&amp;w=1536&amp;s=cb3b9e51ea5fef6fdc229fb24b740b7d"  />
+
+<p class="caption">
+
+<a href='https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&amp;h=1536&amp;w=1536&amp;s=cb3b9e51ea5fef6fdc229fb24b740b7d' title=''>https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&amp;h=1536&amp;w=1536&amp;s=cb3b9e51ea5fef6fdc229fb24b740b7d</a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Underpowered studies</h2></hgroup><article  class="smaller" id="underpowered-studies">
+
+<div style="text-align: center" class="figure">
+<img src="http://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2000797.g003&type=large" alt="[[@Szucs2017-fc]](http://dx.doi.org/10.1371/journal.pbio.2000797)" width="900px" />
+
+<p class="caption">
+
+<a href='http://dx.doi.org/10.1371/journal.pbio.2000797' title=''><span class="cite">(Szucs &amp; Ioannidis, 2017)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>Assuming a realistic range of prior probabilities for null hypotheses, false report probability is likely to exceed 50% for the whole literature.</em>&rdquo;</p>
+
+<p><a href='http://dx.doi.org/10.1371/journal.pbio.2000797' title=''><span class="cite">(Szucs &amp; Ioannidis, 2017)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2>Getting the stats right…</h2></hgroup><article  id="getting-the-stats-right">
+
+<p><img src="img/nuijten-etal.jpg" width="700px" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div style="text-align: center" class="figure">
+<img src="https://static-content.springer.com/image/art%3A10.3758%2Fs13428-015-0664-2/MediaObjects/13428_2015_664_Fig3_HTML.gif" alt="[[@Nuijten2015-ul]](https://doi.org10.3758/s13428-015-0664-2)" height="500px" />
+
+<p class="caption">
+
+<a href='https://doi.org10.3758/s13428-015-0664-2' title=''><span class="cite">(Nuijten, Hartgerink, Assen, Epskamp, &amp; Wicherts, 2015)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>The toothbrush problem…</h2></hgroup><article  id="the-toothbrush-problem">
+
+<p><img src="https://www.rd.com/wp-content/uploads/2017/02/01-How-Bad-is-it-to-Share-a-Toothbrush-159311405-ABykov-760x506.jpg" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>…psychologists tend to treat other peoples’ theories like toothbrushes; no self-respecting individual wants to use anyone else’s.</em>&rdquo;</p>
+
+<p><a href='https://www.psychologicalscience.org/observer/becoming-a-cumulative-science' title=''><span class="cite">(Mischel, 2011)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>The toothbrush culture undermines the building of a genuinely cumulative science, encouraging more parallel play and solo game playing, rather than building on each other’s directly relevant best work.</em>&rdquo;</p>
+
+<p><a href='https://www.psychologicalscience.org/observer/becoming-a-cumulative-science' title=''><span class="cite">(Mischel, 2011)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2>Openness, transparency, data and materials sharing are unrewarded…</h2></hgroup><article  id="openness-transparency-data-and-materials-sharing-are-unrewarded">
+
+<blockquote>
+<p>&ldquo;<em>Reviewers and editors want novel, interesting results. Why would I waste my time doing careful direct replications?</em>&rdquo;</p>
+</blockquote>
+
+<blockquote>
+<p>&ldquo;<em>Reviewing papers is hard, unpaid work. If I have to check someone’s stats, too, I’ll quit.</em>&rdquo;</p>
+</blockquote>
+
+<p>– Any number of researchers I’ve talked with</p>
+
+</article></slide><slide class=""><hgroup><h2>To share (data &amp; materials) or not to share…</h2></hgroup><article  class="smaller" id="to-share-data-materials-or-not-to-share">
+
+<div style="text-align: center" class="figure">
+<img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/wicherts_2006_amp_61_7_726_fig1a.jpg" alt="[[@wicherts_poor_2006]](http://doi.org/10.1037/0003-066X.61.7.726)" height="500px" />
+
+<p class="caption">
+
+<a href='http://doi.org/10.1037/0003-066X.61.7.726' title=''><span class="cite">(Wicherts, Borsboom, Kats, &amp; Molenaar, 2006)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2><a href='https://doi.org/10.1525/collabra.13' title=''><span class="cite">(Vanpaemel, Vermorgen, Deriemaecker, &amp; Storms, 2015)</span></a></h2></hgroup><article  id="vanpaemel2015-zr">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Response</th>
+<th align="left">Percent</th>
+</tr>
+<tr class="odd">
+<td align="left">No reply</td>
+<td align="left">41%</td>
+</tr>
+<tr class="even">
+<td align="left">Refused/unable to share data</td>
+<td align="left">18%</td>
+</tr>
+<tr class="odd">
+<td align="left">No data despite promise</td>
+<td align="left">4%</td>
+</tr>
+<tr class="even">
+<td align="left">Data shared after reminder</td>
+<td align="left">16%</td>
+</tr>
+<tr class="odd">
+<td align="left">Data shared after 1st request</td>
+<td align="left">22%</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div style="text-align: center" class="figure">
+<img src="img/repro-cancer-bio.png" alt="https://doi.org/10.7554/eLife.67995" width="900px" />
+
+<p class="caption">
+
+<a href='https://doi.org/10.7554/eLife.67995' title=''>https://doi.org/10.7554/eLife.67995</a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2><a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington, Denis, Perfito, Iorns, &amp; Nosek, 2021)</span></a></h2></hgroup><article  class="smaller" id="errington2021-dp">
+
+<p><img src="https://iiif.elifesciences.org/lax:67995%2Felife-67995-fig2-v1.tif/full/1500,/0/default.jpg" width="900px" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2><a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></h2></hgroup><article  id="errington2021-dp-1">
+
+<blockquote>
+<p>&ldquo;<em>The initial aim of the project was to repeat 193 experiments from 53 high-impact papers, using an approach in which the experimental protocols and plans for data analysis had to be peer reviewed and accepted for publication before experimental work could begin. However, the various barriers and challenges we encountered while designing and conducting the experiments meant that we were only able to repeat 50 experiments from 23 papers.</em>&rdquo;</p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>While authors were extremely or very helpful for 41% of experiments, they were minimally helpful for 9% of experiments, and not at all helpful (or did not respond to us) for 32% of experiments. Third, once experimental work started, 67% of the peer-reviewed protocols required modifications to complete the research and just 41% of those modifications could be implemented.</em>&rdquo; – <a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>This experience draws attention to a basic and fundamental concern about replication – it is hard to assess whether reported findings are credible</em>&rdquo; – <a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
+</blockquote>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>How to do better</h2></hgroup><article  id="how-to-do-better">
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div style="text-align: center" class="figure">
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41562-016-0021/MediaObjects/41562_2016_Article_BFs415620160021_Fig1_HTML.jpg?as=webp" alt="[[@munafo_manifesto_2017]](http://doi.org/10.1038/s41562-016-0021)" width="800px" />
+
+<p class="caption">
+
+<a href='http://doi.org/10.1038/s41562-016-0021' title=''><span class="cite">(Munafò et al., 2017)</span></a>
+
+</p></div>
+
+<!-- Manifesto for reproducible science -->
+
+<aside class='note'><section><p>This recent manifesto from Nature Human Behavior describes the risks to reproducible science at every step of the process. I urge you to read it.</p></section></aside>
+
+</article></slide><slide class=""><hgroup><h2>Reproducibility in psychological science</h2></hgroup><article  id="reproducibility-in-psychological-science">
+
+<ul>
+<li>Bigger samples</li>
+<li>Multiple replications</li>
+<li>Registration</li>
+<li>Data, procedure, and materials sharing</li>
+<li>&ldquo;Data blinding&rdquo;</li>
+<li>Larg(er)-scale replication studies</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Reproducibility Project: Psychology (RPP)</h2></hgroup><article  id="reproducibility-project-psychology-rpp">
+
+<p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>We conducted replications of 100…studies published in three psychology journals using high-powered designs and original materials when available….The mean effect size (r) of the replication effects …was half the magnitude of the mean effect size of the original effects…</em>&rdquo;</p>
+
+<p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>Ninety-seven percent of original studies had significant results (P &lt; .05). Thirty-six percent of replications had significant results.</em>&rdquo;</p>
+
+<p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<blockquote>
+<p>&ldquo;<em>39% of effects were subjectively rated to have replicated the original result…</em>&rdquo;</p>
+
+<p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
+</blockquote>
+
+</article></slide><slide class=""><hgroup><h2><a href='Camerer2018-tr' title=''><span class="cite">(Camerer et al., 2018)</span></a></h2></hgroup><article  id="camerer2018-tr">
+
+<div style="text-align: center" class="figure">
+<img src="https://mfr.osf.io/export?url=https://osf.io/fg4d3/?action=download%26mode=render%26direct%26public_file=True&initialWidth=711&childId=mfrIframe&parentTitle=OSF+%7C+F1+-+EffectSizes.png&parentUrl=https://osf.io/fg4d3/&format=2400x2400.jpeg" alt="[[@Camerer2018-tr]](Camerer2018-tr)" height="500px" />
+
+<p class="caption">
+
+<a href='Camerer2018-tr' title=''><span class="cite">(Camerer et al., 2018)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div style="text-align: center" class="figure">
+<img src="https://mfr.osf.io/export?url=https://osf.io/cefq7/?action=download%26mode=render%26direct%26public_file=True&initialWidth=680&childId=mfrIframe&parentTitle=OSF+%7C+F4+-+PeerBeliefs.png&parentUrl=https://osf.io/cefq7/&format=2400x2400.jpeg" alt="[[@Camerer2018-tr]](Camerer2018-tr)" height="500px" />
+
+<p class="caption">
+
+<a href='Camerer2018-tr' title=''><span class="cite">(Camerer et al., 2018)</span></a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Video as data and documentation</h2></hgroup><article  id="video-as-data-and-documentation">
+
+<div class="centered">
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-video-reproducibility/master/img/gilmore-adolph-nat-hum-beh.jpg" height=550px></p></div>
+
+</article></slide><slide class=""><hgroup><h2>Play &amp; Learning Across a Year (PLAY Project)</h2></hgroup><article  id="play-learning-across-a-year-play-project">
+
+<ul>
+<li><a href='https://play-project.org' title=''>https://play-project.org</a></li>
+<li>&ldquo;An hour in the life&rdquo; of 1,000 families</li>
+<li>(Hyper)active data curation… <a href='http://dx.doi.org/10.7191/jeslib.2021.1208' title=''><span class="cite">(Soska et al., 2021)</span></a></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Improved statistical practices</h2></hgroup><article  id="improved-statistical-practices">
+
+<ul>
+<li>Automated checking of paper statistics (in American Psychological Association formats) via <a href='http://statcheck.io' title=''>Statcheck</a></li>
+<li>Redefine &ldquo;statistical significance&rdquo; as \(p&lt;.005\)? <a href='https://dx.doi.org/10.17605/OSF.IO/MKY9J' title=''>(Benjamin et al., 2017)</a></li>
+<li>Or move away from <a href='https://en.wikipedia.org/wiki/Statistical_hypothesis_testing' title=''>NHST</a> toward more robust and cumulative practices (Bayesian, CI/effect-size-driven) - Better capture what we know or think we know</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Store data, materials, code in repositories</h2></hgroup><article  id="store-data-materials-code-in-repositories">
+
+<ul>
+<li>Data libraries</li>
+<li>Funder, journal mandates for sharing increasing</li>
+<li>But no long-term, stable, funding sources for curation, archiving, sharing</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Open from the beginning…</h2></hgroup><article  id="open-from-the-beginning">
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div style="text-align: center" class="figure">
+<img src="http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg" alt="http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg" height="500px" />
+
+<p class="caption">
+
+<a href='http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg' title=''>http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg</a>
+
+</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Science as a way of knowing…</h2></hgroup><article  id="science-as-a-way-of-knowing">
+
+<ul>
+<li>How do we know?</li>
+<li>Why should we care?</li>
+<li>How do we share what we know (and how we know it)?</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<div class="centered">
+
+
+<video width="800" loop data-autoplay>
+
+<source src="https://github.com/gilmore-lab/DEVSEC-2018/blob/master/mov/databrary-splash.mp4?raw=true" type="video/mp4">
+
+</video>
+
+<p><a href='mailto:rogilmore@psu.edu' title=''>rogilmore@psu.edu</a></p>
+
+<p><a href='https://gilmore-lab.github.io' title=''>https://gilmore-lab.github.io</a></p>
+
+<p><a href='https://github.com/gilmore-lab/2022-02-23-psi-chi/' title=''>https://github.com/gilmore-lab/2022-02-23-psi-chi/</a></p>
+
+</div>
+
+</article></slide><slide class=""><hgroup><h2>Resources</h2></hgroup><article  class="smaller" id="resources">
+
+<p>This talk was produced on 2022-02-22 in <a href='http://rstudio.com' title=''>RStudio</a> using R Markdown. The code and materials used to generate the slides may be found at <a href='https://github.com/gilmore-lab/2022-02-23-psi-chi/' title=''>https://github.com/gilmore-lab/2022-02-23-psi-chi/</a>. Information about the R Session that produced the code is as follows:</p>
+
+<pre >## R version 4.1.2 (2021-11-01)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Monterey 12.2.1
+## 
+## Matrix products: default
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils    
+## [5] datasets  methods   base     
+## 
+## other attached packages:
+## [1] DiagrammeR_1.0.6.1
+## 
+## loaded via a namespace (and not attached):
+##  [1] png_0.1-7          visNetwork_2.1.0  
+##  [3] digest_0.6.29      R6_2.5.1          
+##  [5] jsonlite_1.7.2     magrittr_2.0.1    
+##  [7] evaluate_0.14      highr_0.9         
+##  [9] rlang_0.4.12       stringi_1.7.6     
+## [11] renv_0.15.2        jquerylib_0.1.4   
+## [13] bslib_0.3.1        rmarkdown_2.11    
+## [15] RColorBrewer_1.1-2 tools_4.1.2       
+## [17] stringr_1.4.0      htmlwidgets_1.5.4 
+## [19] glue_1.6.0         xfun_0.29         
+## [21] yaml_2.2.1         fastmap_1.1.0     
+## [23] compiler_4.1.2     htmltools_0.5.2   
+## [25] knitr_1.37         sass_0.4.0</pre>
+
+</article></slide><slide class=""><hgroup><h2>References</h2></hgroup><article  class="unnumbered smaller" id="references">
+
+<div class="references csl-bib-body hanging-indent" id="refs" line-spacing="2">
+<div class="csl-entry" id="ref-baker_1500_2016">
+<p>Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. <em>Nature News</em>, <em>533</em>(7604), 452. <a href='https://doi.org/10.1038/533452a' title=''>https://doi.org/10.1038/533452a</a></p></div>
+
+<div class="csl-entry" id="ref-Camerer2018-tr">
+<p>Camerer, C. F., Dreber, A., Holzmeister, F., Ho, T.-H., Huber, J., Johannesson, M., … Wu, H. (2018). Evaluating the replicability of social science experiments in nature and science between 2010 and 2015. <em>Nature Human Behaviour</em>, 1. <a href='https://doi.org/10.1038/s41562-018-0399-z' title=''>https://doi.org/10.1038/s41562-018-0399-z</a></p></div>
+
+<div class="csl-entry" id="ref-collaboration_estimating_2015">
+<p>Collaboration, O. S. (2015). Estimating the reproducibility of psychological. <em>Science</em>, <em>349</em>(6251), aac4716. <a href='https://doi.org/10.1126/science.aac4716' title=''>https://doi.org/10.1126/science.aac4716</a></p></div>
+
+<div class="csl-entry" id="ref-Errington2021-dp">
+<p>Errington, T. M., Denis, A., Perfito, N., Iorns, E., &amp; Nosek, B. A. (2021). Challenges for assessing replicability in preclinical cancer biology. <em>eLife</em>, <em>10</em>, e67995. <a href='https://doi.org/10.7554/eLife.67995' title=''>https://doi.org/10.7554/eLife.67995</a></p></div>
+
+<div class="csl-entry" id="ref-goodman_what_2016">
+<p>Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? <em>Science Translational Medicine</em>, <em>8</em>(341), 341ps12–341ps12. <a href='https://doi.org/10.1126/scitranslmed.aaf5027' title=''>https://doi.org/10.1126/scitranslmed.aaf5027</a></p></div>
+
+<div class="csl-entry" id="ref-Mischel2011-br">
+<p>Mischel, W. (2011). Becoming a cumulative science. <em>APS Observer</em>, <em>22</em>(1). Retrieved from <a href='https://www.psychologicalscience.org/observer/becoming-a-cumulative-science' title=''>https://www.psychologicalscience.org/observer/becoming-a-cumulative-science</a></p></div>
+
+<div class="csl-entry" id="ref-munafo_manifesto_2017">
+<p>Munafò, M. R., Nosek, B. A., Bishop, D. V. M., Button, K. S., Chambers, C. D., Sert, N. P. du, … Ioannidis, J. P. A. (2017). A manifesto for reproducible science. <em>Nature Human Behaviour</em>, <em>1</em>, 0021. <a href='https://doi.org/10.1038/s41562-016-0021' title=''>https://doi.org/10.1038/s41562-016-0021</a></p></div>
+
+<div class="csl-entry" id="ref-Nuijten2015-ul">
+<p>Nuijten, M. B., Hartgerink, C. H. J., Assen, M. A. L. M. van, Epskamp, S., &amp; Wicherts, J. M. (2015). The prevalence of statistical reporting errors in psychology (1985–2013). <em>Behavior Research Methods</em>, 1–22. <a href='https://doi.org/10.3758/s13428-015-0664-2' title=''>https://doi.org/10.3758/s13428-015-0664-2</a></p></div>
+
+<div class="csl-entry" id="ref-Soska2021-mh">
+<p>Soska, K. C., Xu, M., Gonzalez, S. L., Herzberg, O., Tamis-LeMonda, C. S., Gilmore, R. O., &amp; Adolph, K. E. (2021). (Hyper)active data curation: A video case study from behavioral science. <em>Journal of Escience Librarianship</em>, <em>10</em>(3). <a href='https://doi.org/10.7191/jeslib.2021.1208' title=''>https://doi.org/10.7191/jeslib.2021.1208</a></p></div>
+
+<div class="csl-entry" id="ref-Szucs2017-fc">
+<p>Szucs, D., &amp; Ioannidis, J. P. A. (2017). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. <em>PLoS Biology</em>, <em>15</em>(3), e2000797. <a href='https://doi.org/10.1371/journal.pbio.2000797' title=''>https://doi.org/10.1371/journal.pbio.2000797</a></p></div>
+
+<div class="csl-entry" id="ref-Vanpaemel2015-zr">
+<p>Vanpaemel, W., Vermorgen, M., Deriemaecker, L., &amp; Storms, G. (2015). Are we wasting a good crisis? The availability of psychological research data after the storm. <em>Collabra</em>, <em>1</em>(1). <a href='https://doi.org/10.1525/collabra.13' title=''>https://doi.org/10.1525/collabra.13</a></p></div>
+
+<div class="csl-entry" id="ref-wicherts_poor_2006">
+<p>Wicherts, J. M., Borsboom, D., Kats, J., &amp; Molenaar, D. (2006). The poor availability of psychological research data for reanalysis. <em>American Psychologist</em>, <em>61</em>(7), 726–728. <a href='https://doi.org/10.1037/0003-066X.61.7.726' title=''>https://doi.org/10.1037/0003-066X.61.7.726</a></p></div></div></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
