@@ -24,7 +24,8 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                      },
+                        favIcon: 'img/psichi_emblem2.gif',
+              },
 
       // Author information
       presenters: [
@@ -93,6 +94,21 @@ slide:not(.current) .plotly.html-widget{
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
             
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(img/psichi_emblem2.gif) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
   </style>
 
   <link rel="stylesheet" href="css/ioslides.css" type="text/css" />
@@ -104,13 +120,14 @@ slide:not(.current) .plotly.html-widget{
 <slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="img/psichi_emblem2.gif"></aside>
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">2022-02-22
-09:33:26</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2022-02-23
+16:45:12</p>
           </hgroup>
   </slide>
 
@@ -202,7 +219,7 @@ slides > slide:not(.nobackground):after {
 }
 </style>
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://media.springernature.com/w300/springer-static/image/art%3A10.1038%2F533452a/MediaObjects/41586_2016_BF533452a_Fige_HTML.jpg?as=webp" alt="[[@baker_1500_2016]](http://doi.org/10.1038/533452a)" width="600px" />
 
 <p class="caption">
@@ -252,7 +269,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2>Factors contributing to irreproducible research</h2></hgroup><article  class="smaller" id="factors-contributing-to-irreproducible-research">
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" alt="[[@baker_1500_2016]](http://doi.org/10.1038/533452a)"  />
 
 <p class="caption">
@@ -278,7 +295,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2>False positives &amp; false negatives</h2></hgroup><article  class="smaller" id="false-positives-false-negatives">
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&h=1536&w=1536&s=cb3b9e51ea5fef6fdc229fb24b740b7d" alt="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&amp;h=1536&amp;w=1536&amp;s=cb3b9e51ea5fef6fdc229fb24b740b7d"  />
 
 <p class="caption">
@@ -289,7 +306,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2>Underpowered studies</h2></hgroup><article  class="smaller" id="underpowered-studies">
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="http://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2000797.g003&type=large" alt="[[@Szucs2017-fc]](http://dx.doi.org/10.1371/journal.pbio.2000797)" width="900px" />
 
 <p class="caption">
@@ -312,7 +329,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://static-content.springer.com/image/art%3A10.3758%2Fs13428-015-0664-2/MediaObjects/13428_2015_664_Fig3_HTML.gif" alt="[[@Nuijten2015-ul]](https://doi.org10.3758/s13428-015-0664-2)" height="500px" />
 
 <p class="caption">
@@ -353,9 +370,9 @@ slides > slide:not(.nobackground):after {
 
 <p>– Any number of researchers I’ve talked with</p>
 
-</article></slide><slide class=""><hgroup><h2>To share (data &amp; materials) or not to share…</h2></hgroup><article  class="smaller" id="to-share-data-materials-or-not-to-share">
+</article></slide><slide class=""><hgroup><h2>To share or not to share…</h2></hgroup><article  class="smaller" id="to-share-or-not-to-share">
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/wicherts_2006_amp_61_7_726_fig1a.jpg" alt="[[@wicherts_poor_2006]](http://doi.org/10.1037/0003-066X.61.7.726)" height="500px" />
 
 <p class="caption">
@@ -395,7 +412,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="img/repro-cancer-bio.png" alt="https://doi.org/10.7554/eLife.67995" width="900px" />
 
 <p class="caption">
@@ -417,20 +434,24 @@ slides > slide:not(.nobackground):after {
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
 <blockquote>
-<p>&ldquo;<em>While authors were extremely or very helpful for 41% of experiments, they were minimally helpful for 9% of experiments, and not at all helpful (or did not respond to us) for 32% of experiments. Third, once experimental work started, 67% of the peer-reviewed protocols required modifications to complete the research and just 41% of those modifications could be implemented.</em>&rdquo; – <a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
+<p>&ldquo;<em>While authors were extremely or very helpful for 41% of experiments, they were minimally helpful for 9% of experiments, and not at all helpful (or did not respond to us) for 32% of experiments. Third, once experimental work started, 67% of the peer-reviewed protocols required modifications to complete the research and just 41% of those modifications could be implemented.</em>&rdquo;</p>
+
+<p><a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
 </blockquote>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
 <blockquote>
-<p>&ldquo;<em>This experience draws attention to a basic and fundamental concern about replication – it is hard to assess whether reported findings are credible</em>&rdquo; – <a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
+<p>&ldquo;<em>This experience draws attention to a basic and fundamental concern about replication – it is hard to assess whether reported findings are credible</em>&rdquo;</p>
+
+<p><a href='https://doi.org/10.7554/eLife.67995' title=''><span class="cite">(Errington et al., 2021)</span></a></p>
 </blockquote>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>How to do better</h2></hgroup><article  id="how-to-do-better">
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41562-016-0021/MediaObjects/41562_2016_Article_BFs415620160021_Fig1_HTML.jpg?as=webp" alt="[[@munafo_manifesto_2017]](http://doi.org/10.1038/s41562-016-0021)" width="800px" />
 
 <p class="caption">
@@ -469,7 +490,7 @@ slides > slide:not(.nobackground):after {
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
 <blockquote>
-<p>&ldquo;<em>Ninety-seven percent of original studies had significant results (P &lt; .05). Thirty-six percent of replications had significant results.</em>&rdquo;</p>
+<p>&ldquo;<em>Ninety-seven percent of original studies had significant results (p &lt; .05). Thirty-six percent of replications had significant results.</em>&rdquo;</p>
 
 <p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
 </blockquote>
@@ -482,9 +503,9 @@ slides > slide:not(.nobackground):after {
 <p><a href='http://science.sciencemag.org/content/349/6251/aac4716' title=''><span class="cite">(Collaboration, 2015)</span></a></p>
 </blockquote>
 
-</article></slide><slide class=""><hgroup><h2><a href='Camerer2018-tr' title=''><span class="cite">(Camerer et al., 2018)</span></a></h2></hgroup><article  id="camerer2018-tr">
+</article></slide><slide class=""><hgroup><h2><a href='Camerer2018-tr' title=''><span class="cite">(Camerer et al., 2018)</span></a></h2></hgroup><article  class="smaller" id="camerer2018-tr">
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://mfr.osf.io/export?url=https://osf.io/fg4d3/?action=download%26mode=render%26direct%26public_file=True&initialWidth=711&childId=mfrIframe&parentTitle=OSF+%7C+F1+-+EffectSizes.png&parentUrl=https://osf.io/fg4d3/&format=2400x2400.jpeg" alt="[[@Camerer2018-tr]](Camerer2018-tr)" height="500px" />
 
 <p class="caption">
@@ -495,7 +516,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="https://mfr.osf.io/export?url=https://osf.io/cefq7/?action=download%26mode=render%26direct%26public_file=True&initialWidth=680&childId=mfrIframe&parentTitle=OSF+%7C+F4+-+PeerBeliefs.png&parentUrl=https://osf.io/cefq7/&format=2400x2400.jpeg" alt="[[@Camerer2018-tr]](Camerer2018-tr)" height="500px" />
 
 <p class="caption">
@@ -533,11 +554,18 @@ slides > slide:not(.nobackground):after {
 <li>But no long-term, stable, funding sources for curation, archiving, sharing</li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Script analyses, version control</h2></hgroup><article  id="script-analyses-version-control">
+
+<ul>
+<li>RMarkdown, Jupyter notebooks</li>
+<li>GitHub</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Open from the beginning…</h2></hgroup><article  id="open-from-the-beginning">
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<div style="text-align: center" class="figure">
+<div class="figure" style="text-align: center">
 <img src="http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg" alt="http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg" height="500px" />
 
 <p class="caption">
@@ -549,9 +577,10 @@ slides > slide:not(.nobackground):after {
 </article></slide><slide class=""><hgroup><h2>Science as a way of knowing…</h2></hgroup><article  id="science-as-a-way-of-knowing">
 
 <ul>
-<li>How do we know?</li>
-<li>Why should we care?</li>
+<li>What do we know</li>
+<li>How do we know it?</li>
 <li>How do we share what we know (and how we know it)?</li>
+<li>Why should we (or others) care?</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
@@ -575,7 +604,7 @@ slides > slide:not(.nobackground):after {
 
 </article></slide><slide class=""><hgroup><h2>Resources</h2></hgroup><article  class="smaller" id="resources">
 
-<p>This talk was produced on 2022-02-22 in <a href='http://rstudio.com' title=''>RStudio</a> using R Markdown. The code and materials used to generate the slides may be found at <a href='https://github.com/gilmore-lab/2022-02-23-psi-chi/' title=''>https://github.com/gilmore-lab/2022-02-23-psi-chi/</a>. Information about the R Session that produced the code is as follows:</p>
+<p>This talk was produced on 2022-02-23 in <a href='http://rstudio.com' title=''>RStudio</a> using R Markdown. The code and materials used to generate the slides may be found at <a href='https://github.com/gilmore-lab/2022-02-23-psi-chi/' title=''>https://github.com/gilmore-lab/2022-02-23-psi-chi/</a>. Information about the R Session that produced the code is as follows:</p>
 
 <pre >## R version 4.1.2 (2021-11-01)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
@@ -588,30 +617,21 @@ slides > slide:not(.nobackground):after {
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils    
-## [5] datasets  methods   base     
-## 
-## other attached packages:
-## [1] DiagrammeR_1.0.6.1
+## [1] stats     graphics  grDevices utils     datasets  methods  
+## [7] base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] png_0.1-7          visNetwork_2.1.0  
-##  [3] digest_0.6.29      R6_2.5.1          
-##  [5] jsonlite_1.7.2     magrittr_2.0.1    
-##  [7] evaluate_0.14      highr_0.9         
-##  [9] rlang_0.4.12       stringi_1.7.6     
-## [11] renv_0.15.2        jquerylib_0.1.4   
-## [13] bslib_0.3.1        rmarkdown_2.11    
-## [15] RColorBrewer_1.1-2 tools_4.1.2       
-## [17] stringr_1.4.0      htmlwidgets_1.5.4 
-## [19] glue_1.6.0         xfun_0.29         
-## [21] yaml_2.2.1         fastmap_1.1.0     
-## [23] compiler_4.1.2     htmltools_0.5.2   
-## [25] knitr_1.37         sass_0.4.0</pre>
+##  [1] png_0.1-7       digest_0.6.29   R6_2.5.1       
+##  [4] jsonlite_1.7.2  magrittr_2.0.1  evaluate_0.14  
+##  [7] highr_0.9       rlang_0.4.12    stringi_1.7.6  
+## [10] jquerylib_0.1.4 bslib_0.3.1     rmarkdown_2.11 
+## [13] tools_4.1.2     stringr_1.4.0   xfun_0.29      
+## [16] yaml_2.2.1      fastmap_1.1.0   compiler_4.1.2 
+## [19] htmltools_0.5.2 knitr_1.37      sass_0.4.0</pre>
 
 </article></slide><slide class=""><hgroup><h2>References</h2></hgroup><article  class="unnumbered smaller" id="references">
 
-<div class="references csl-bib-body hanging-indent" id="refs" line-spacing="2">
+<div line-spacing="2" id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry" id="ref-baker_1500_2016">
 <p>Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. <em>Nature News</em>, <em>533</em>(7604), 452. <a href='https://doi.org/10.1038/533452a' title=''>https://doi.org/10.1038/533452a</a></p></div>
 
